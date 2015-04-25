@@ -1,0 +1,17 @@
+.navbar-right(ng-controller="userNavigationCtrl as vm")
+  ul.nav.navbar-nav.navbar-right
+    li.dropdown
+      a.dropdown-toggle(data-toggle="dropdown", href="#")
+        | Guest
+        span.caret
+      ul.dropdown-menu(role="menu")
+        li(role="presentation", ng-hide="vm.identity.isAuthenticated()")
+          a(href="/signin", role="menuitem") Sign In
+        li(role="presentation", ng-hide="vm.identity.isAuthenticated()")
+          a(href="/signup", role="menuitem") Sign Up
+        li(role="presentation", ng-show="vm.identity.isAuthenticated()")
+          a(href="/profile", role="menuitem") User Profile
+        li(role="presentation", ng-show="vm.identity.isAuthenticated()")
+          a(href="#", role="menuitem") Users
+        li(role="presentation", ng-show="vm.identity.isAuthenticated()")
+          a(href="/signout", role="menuitem", ng-click="vm.signOut()") Sign Out

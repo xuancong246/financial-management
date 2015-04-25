@@ -1,0 +1,66 @@
+.accordion(id="leftMenu")
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#")
+                i.icon-home
+                | Dashboard
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#collapseTwo")
+                i.icon-th
+                | Layout
+                span.caret
+        .accordion-body.collapse(id="collapseTwo", style="height: 0px;")
+            .accordion-inner
+                ul
+                    li This is one
+                    li This is two
+                    li This is three
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#collapseThree")
+                i.icon-th-list
+                | UI Components
+                span.caret
+        .accordion-body.collapse(id="collapseThree", style="height: 0px;")
+            .accordion-inner
+                ul
+                    li This is one
+                    li This is two
+                    li This is three
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#collapseFour")
+                i.icon-list-alt
+                | Forms
+                span.caret
+        .accordion-body.collapse(id="collapseFour", style="height: 0px;")
+            .accordion-inner
+                ul
+                    li This is one
+                    li This is two
+                    li This is three
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#collapseFive")
+                i.icon-cog
+                | Plugins
+                span.caret
+        .accordion-body.collapse(id="collapseFive", style="height: 0px;")
+            .accordion-inner
+                ul
+                    li This is one
+                    li This is two
+                    li This is three
+    .accordion-group
+        .accordion-heading
+            a.accordion-toggle(data-toggle="collapse", data-parent="#leftMenu", href="#collapseSix")
+                i.icon-file
+                | Templates
+                span.caret
+        .accordion-body.collapse(id="collapseSix", style="height: 0px;")
+            .accordion-inner
+                ul
+                    li This is one
+                    li This is two
+                    li This is three
