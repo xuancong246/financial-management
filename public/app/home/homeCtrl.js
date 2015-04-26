@@ -1,13 +1,13 @@
 (function() {
-  angular.module('app').controller('homeCtrl', HomeCtrl);
-  HomeCtrl.$inject = ['$location'];
+    angular.module('fm').controller('homeCtrl', HomeCtrl);
+    HomeCtrl.$inject = ['$location'];
 
-  function HomeCtrl($location) {
-    var vm = this;
-    vm.test = test;
+    function HomeCtrl($location) {
+        var vm = this;
+        vm.test = test;
 
-    function test() {
-      $location.path('/login');
+        function test() {
+            $location.path('/login');
+        }
     }
-  }
 })();
