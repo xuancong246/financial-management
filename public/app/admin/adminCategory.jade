@@ -1,0 +1,44 @@
+.navbar-default.sidebar(role="navigation")
+    .sidebar-nav.navbar-collapse
+        ul.nav.in(id="side-menu")
+            li
+                a.active(ui-sref="admin.users")
+                    i.fa.fa-dashboard.fa-fw
+                    | Users
+            li
+                a(ui-sref="admin.roles")
+                    i.fa.fa-dashboard.fa-fw
+                    | Roles
+            li
+                a(href="#", id="charts", data-toggle="collapse", data-target="#chartItems")
+                    i.fa.fa-bar-chart-o.fa-fw
+                    | Charts
+                    span.fa.arrow
+                ul.nav.nav-second-level.collapse(id="chartItems", aria-labelledby="charts")
+                    li
+                        a Flot Charts
+                    li
+                        a Morris.js Charts
+            li
+                a
+                    i.fa.fa-table.fa-fw
+                    | Tables
+            li
+                a(id="test1", data-toggle="collapse", data-target="#test2")
+                    i.fa.fa-sitemap.fa-fw
+                    | Multi-Level Dropdown
+                    span.fa.arrow
+                ul.nav.nav-second-level.collapse.in(aria-expanded="true", id="test2", aria-labelledby="test1")
+                    li
+                        a Second Level Item
+                    li
+                        a Second Level Item 2
+                    li
+                        a(data-toggle="collapse", data-target="#testLevel", id="testLink", aria-expanded="false")
+                            | Third Level
+                            span.fa.arrow
+                        ul.nav.nav-third-level.collapse.in(id="testLevel", role="menu", aria-labelledby="testLink")
+                            li
+                                a Third Level Item
+                            li
+                                a Third Level Item 3

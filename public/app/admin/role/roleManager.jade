@@ -1,0 +1,9 @@
+table.table
+    thead
+        tr
+            th Role name
+            th Description
+    tbody
+        tr(ng-repeat="role in vm.model.roles")
+            td {{ role.name }}
+            td {{ role.description }}

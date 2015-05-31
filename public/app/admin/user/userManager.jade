@@ -1,0 +1,10 @@
+table.table
+    thead
+        tr
+            th Email
+            th Full name
+    tbody
+        tr(ng-repeat="user in vm.model.users")
+            td 
+                a(ui-sref="admin.users.edit({ id:user._id })") {{ user.username }}            
+            td {{ user.firstName + ' ' + user.lastName }}

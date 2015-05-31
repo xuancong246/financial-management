@@ -1,0 +1,26 @@
+.well
+    form.form-horizontal(name="userEditorForm")
+        fieldset
+            legend User Information
+            .form-group
+                label.col-md-2.control-label(for="username") Email
+                .col-md-10
+                    input.form-control(name="username", type="email", placeholder="Email", ng-model="vm.model.user.username", required)
+            .form-group
+                label.col-md-2.control-label(for="firstName") First Name
+                .col-md-10
+                    input.form-control(name="firstName", type="text", placeholder="First Name", ng-model="vm.model.user.firstName", required)
+            .form-group
+                label.col-md-2.control-label(for="lastName") Last Name
+                .col-md-10
+                    input.form-control(name="lastName", type="text", placeholder="Last Name", ng-model="vm.model.user.lastName", required)
+            .form-group
+                label.col-md-2.control-label(for="password") Password
+                .col-md-10
+                    input.form-control(name="password", type="password", placeholder="Password", ng-model="vm.model.newPassword")
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="profileForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.users") Cancel

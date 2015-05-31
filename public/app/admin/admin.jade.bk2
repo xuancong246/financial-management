@@ -1,0 +1,17 @@
+nav
+    ul.nav
+        li
+            a(href="#") Link 1
+        li
+            a(href="#", id="btn-1", data-toggle="collapse", data-target="#submenu1", aria-expanded="false") Link 2 (toggle)
+            ul.nav.collapse(id="submenu1", role="menu", aria-labelledby="btn-1")
+                li
+                    a(href="#") Link 2.1
+                li
+                    a(href="#") Link 2.2
+                li
+                    a(href="#") Link 2.3
+        li
+            a(href="#") Link 3
+        li
+            a(href="#") Link 4
