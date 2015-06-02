@@ -1,5 +1,5 @@
 (function() {
-    angular.module('app').factory('identitySvc', IdentitySvc);
+    angular.module('fm').factory('identitySvc', IdentitySvc);
     IdentitySvc.$inject = ['$window', 'userModel'];
 
     function IdentitySvc($window, userModel) {

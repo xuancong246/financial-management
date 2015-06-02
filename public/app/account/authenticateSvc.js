@@ -1,5 +1,5 @@
 (function() {
-    angular.module('app').factory('authenticateSvc', AuthenticateSvc);
+    angular.module('fm').factory('authenticateSvc', AuthenticateSvc);
     AuthenticateSvc.$inject = ['$q', '$http', 'userModel', 'identitySvc'];
 
     function AuthenticateSvc($q, $http, userModel, identitySvc) {

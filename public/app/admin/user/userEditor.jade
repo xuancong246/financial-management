@@ -1,0 +1,26 @@
+.panel.panel-default
+    .panel-heading User Information
+    .panel-body
+        form.form-horizontal(name="userEditorForm")
+            .form-group
+                label.col-md-2.control-label(for="username") Email
+                .col-md-10
+                    input.form-control(name="username", type="email", placeholder="Email", ng-model="vm.model.user.username", required)
+            .form-group
+                label.col-md-2.control-label(for="firstName") First name
+                .col-md-10
+                    input.form-control(name="firstName", type="text", placeholder="First name", ng-model="vm.model.user.firstName", required)
+            .form-group
+                label.col-md-2.control-label(for="lastName") Last name
+                .col-md-10
+                    input.form-control(name="lastName", type="text", placeholder="Last name", ng-model="vm.model.user.lastName", required)
+            .form-group
+                label.col-md-2.control-label(for="password") Password
+                .col-md-10
+                    input.form-control(name="password", type="password", placeholder="New password", ng-model="vm.model.newPassword")
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="profileForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.users") Cancel
