@@ -34,6 +34,12 @@ angular.module('fm').config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/partials/admin/user/userManager',
         controller: 'userManagerCtrl', controllerAs: 'vm'
     })
+    .state('admin.users.create', {
+        parent: 'admin',
+        url: '/users/create',
+        templateUrl: '/partials/admin/user/userCreator',
+        controller: 'userCreatorCtrl', controllerAs: 'vm'
+    })
     .state('admin.users.edit', {
         parent: 'admin',
         url: '/users/edit/:id',

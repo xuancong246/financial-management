@@ -1,0 +1,26 @@
+.panel.panel-default
+    .panel-heading New User Information
+    .panel-body
+        form.form-horizontal(name="createUserForm")
+            .form-group
+                label.col-md-2.control-label(for="username") Email
+                .col-md-10
+                    input.form-control(name="username", type="email", placeholder="Email", ng-model="vm.model.username", required)
+            .form-group
+                label.col-md-2.control-label(for="password") Password
+                .col-md-10
+                    input.form-control(name="password", type="password", placeholder="Password", ng-model="vm.model.password", required)
+            .form-group
+                label.col-md-2.control-label(for="firstName") First name
+                .col-md-10
+                    input.form-control(name="firstName", type="text", placeholder="First name", ng-model="vm.model.firstName", required)
+            .form-group
+                label.col-md-2.control-label(for="lastName") Last name
+                .col-md-10
+                    input.form-control(name="lastName", type="text", placeholder="Last name", ng-model="vm.model.lastName", required)
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.createUser()", ng-disabled="createUserForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.users") Cancel

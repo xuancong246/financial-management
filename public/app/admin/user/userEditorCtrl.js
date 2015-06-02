@@ -1,8 +1,8 @@
 (function() {
     angular.module('fm').controller('userEditorCtrl', UserEditorCtrl);
-    UserEditorCtrl.$inject = ['$stateParams', '$location', 'userDataSvc', 'notifierSvc'];
+    UserEditorCtrl.$inject = ['$stateParams', '$state', 'userDataSvc', 'notifierSvc'];
 
-    function UserEditorCtrl($stateParams, $location, userDataSvc, notifierSvc) {
+    function UserEditorCtrl($stateParams, $state, userDataSvc, notifierSvc) {
         var vm = this;
         vm.model = {
             user: {},
@@ -25,9 +25,9 @@
 
             userDataSvc.update(updatedUser).then(function() {
                 notifierSvc.showSuccess('Updating user successfully!');
-                $location.path('/admin/users');
+                $state.go('admin.users');
             }, function(reason) {
-                console.log('Update user failed. reason: ' + reason.data);
+                console.log('Updating user failed. reason: ' + reason.data);
                 notifierSvc.showError('Updating user failed!');
             });
         }

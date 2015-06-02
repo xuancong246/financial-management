@@ -4,12 +4,22 @@
 
     function UserDataSvc($q, $http, userModel, identitySvc) {
         var service = {
-            // createUser: createUser,
+            createUser: createUser,
             update: update,
             getById: getById
         };
         return service;
 
+        function createUser(user) {
+            var newUser = new userModel(user);
+            var defer = $q.defer();
+            newUser.$save().then(function() {
+                defer.resolve();
+            }, function(res) {
+                defer.reject(res);
+            });
+            return defer.promise;
+        }
 
         function update(user) {
             var defer = $q.defer();
