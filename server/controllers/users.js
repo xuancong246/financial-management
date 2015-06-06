@@ -34,7 +34,7 @@ function createUser(req, res, next) {
     User.create(userData, function(err, user) {
         if (err) {
             if (err.toString().indexOf('E11000') > -1) {
-                err = new Error('Duplicated Username');
+                err = new Error('Duplicated username');
             }
             res.status(400);
             return res.send({reason:err.toString()});
@@ -54,20 +54,7 @@ function createUser(req, res, next) {
 
 function updateUser(req, res) {
     var updatedUser = req.body;
-    // if (req.user._id != updatedUser._id && !req.user.hasRole('admin')) {
-    //     console.log('1');
-    //     res.status(403);
-    //     return res.end();
-    // }
-    //
-    // req.user.firstName = user.firstName;
-    // req.user.lastName = user.lastName;
-    // req.user.username = user.username;
-    // if (user.newPassword) {
-    //     req.user.salt = encryption.createSalt();
-    //     req.user.password = encryption.hashPwd(req.user.salt, user.newPassword);
-    // }
-    //
+
     User.findOne({_id: updatedUser._id}).exec(function(err, user) {
         if (err) {
             res.status(400);

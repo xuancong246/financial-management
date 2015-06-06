@@ -14,11 +14,11 @@
                 firstName: vm.model.firstName,
                 lastName: vm.model.lastName
             };
-            userDataSvc.createUser(newUserData).then(function() {
+            userDataSvc.create(newUserData).then(function() {
                 notifierSvc.showSuccess('Creating user successfully!');
                 $state.go('admin.users');
             }, function(res) {
-                console.log('Creating user failed. reason: ' + reason.data.toString());
+                console.log('Creating user failed. reason: ' + res.data.reason.toString());
                 notifierSvc.showError('Creating user failed!');
             });
         }

@@ -1,0 +1,18 @@
+.panel.panel-default
+    .panel-heading Role Information
+    .panel-body
+        form.form-horizontal(name="roleEditorForm")
+            .form-group
+                label.col-md-2.control-label(for="name") Name
+                .col-md-10
+                    input.form-control(name="name", type="type", ng-model="vm.model.role.name", required)
+            .form-group
+                label.col-md-2.control-label(for="description") Description
+                .col-md-10
+                    input.form-control(name="description", type="text", ng-model="vm.model.role.description")
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="roleEditorForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.roles") Cancel

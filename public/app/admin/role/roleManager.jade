@@ -1,9 +1,24 @@
-table.table
-    thead
-        tr
-            th Role name
-            th Description
-    tbody
-        tr(ng-repeat="role in vm.model.roles")
-            td {{ role.name }}
-            td {{ role.description }}
+.panel.panel-default
+    .panel-heading Role Management
+    .panel-body
+        .btn-group
+            button.btn.btn-primary(type="button") Actions
+            button.btn.btn-primary.btn-toggle(type="button", data-toggle="dropdown")
+                span.caret
+            ul.dropdown-menu(role="menu")
+                li
+                    a(ui-sref="admin.roles.create") Create New Role
+    table.table.table-hover
+        thead
+            tr
+                th
+                    input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+                th Role name
+                th Description
+        tbody
+            tr(ng-repeat="role in vm.model.roles")
+                td
+                    input(type="checkbox", ng-model="role.selected")
+                td
+                    a(ui-sref="admin.roles.edit({ id:role._id })") {{ role.name }}
+                td {{ role.description }}

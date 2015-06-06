@@ -51,6 +51,18 @@ angular.module('fm').config(function($stateProvider, $urlRouterProvider) {
         url: '/roles',
         templateUrl: '/partials/admin/role/roleManager',
         controller: 'roleManagerCtrl', controllerAs: 'vm'
+    })
+    .state('admin.roles.create', {
+        parent: 'admin',
+        url: '/roles/create',
+        templateUrl: '/partials/admin/role/roleCreator',
+        controller: 'roleCreatorCtrl', controllerAs: 'vm'
+    })
+    .state('admin.roles.edit', {
+        parent: 'admin',
+        url: '/roles/edit/:id',
+        templateUrl: '/partials/admin/role/roleEditor',
+        controller: 'roleEditorCtrl', controllerAs: 'vm'
     });
 });
 
