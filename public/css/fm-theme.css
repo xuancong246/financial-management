@@ -1,0 +1,24 @@
+#top-main-navbar {
+  margin-bottom: 0;
+}
+#top-right-user-navbar {
+  margin-right: 0;
+}
+#admin-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+#admin-category,
+#admin-category .navbar-collapse {
+  padding-left: 0;
+  padding-right: 0;
+}
+#admin-category .sidebar ul li a {
+  border-bottom: 1px solid #e7e7e7;
+}
+#admin-body {
+  border-left: 1px solid #e7e7e7;
+}
+#admin-body h3.page-header {
+  margin-top: 25px;
+}
