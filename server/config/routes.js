@@ -9,6 +9,9 @@ module.exports = function(app, config) {
     app.put('/api/users', users.updateUser);
 
     app.get('/api/roles', roles.getRoles);
+    app.get('/api/roles/:id', roles.getRoleById);
+    app.post('/api/roles', roles.createRole);
+    app.put('/api/roles', roles.updateRole);
 
     app.get('/partials/*', function(req, res) {
         res.render(config.partialsPath + '/' + req.params[0]);

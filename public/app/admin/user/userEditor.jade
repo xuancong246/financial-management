@@ -1,5 +1,5 @@
+h3.page-header User Information
 .panel.panel-default
-    .panel-heading User Information
     .panel-body
         form.form-horizontal(name="userEditorForm")
             .form-group
@@ -21,6 +21,6 @@
             .form-group
                 .col-md-10.col-md-offset-2
                     .pull-right
-                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="profileForm.$invalid") Submit
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="userEditorForm.$invalid") Submit
                         | &nbsp;
                         a.btn.btn-default(ui-sref="admin.users") Cancel
