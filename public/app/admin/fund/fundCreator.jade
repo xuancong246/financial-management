@@ -1,0 +1,24 @@
+h3.page-header New Fund Information
+.panel.panel-default
+    .panel-body
+        form.form-horizontal(name="createFundForm")
+            .form-group
+                label.col-md-2.control-label(for="name") Name
+                .col-md-10
+                    input.form-control(name="name", type="text", ng-model="vm.model.name", required)
+            .form-group
+                label.col-md-2.control-label(for="description") Description
+                .col-md-10
+                    input.form-control(name="description", type="text", ng-model="vm.model.description")
+            .form-group
+                .col-md-offset-2.col-md-10
+                    .checkbox
+                        label
+                            input(name="isActive", type="checkbox", ng-model="vm.model.isActive", ng-disabled="true")
+                            | Active
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.create()", ng-disabled="createFundForm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.funds") Cancel

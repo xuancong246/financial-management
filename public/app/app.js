@@ -63,6 +63,24 @@ angular.module('fm').config(function($stateProvider, $urlRouterProvider) {
         url: '/roles/edit/:id',
         templateUrl: '/partials/admin/role/roleEditor',
         controller: 'roleEditorCtrl', controllerAs: 'vm'
+    })
+    .state('admin.funds', {
+        parent: 'admin',
+        url: '/funds',
+        templateUrl: '/partials/admin/fund/fundManager',
+        controller: 'fundManagerCtrl', controllerAs: 'vm'
+    })
+    .state('admin.funds.create', {
+        parent: 'admin',
+        url: '/funds/create',
+        templateUrl: '/partials/admin/fund/fundCreator',
+        controller: 'fundCreatorCtrl', controllerAs: 'vm'
+    })
+    .state('admin.funds.edit', {
+        parent: 'admin',
+        url: '/funds/edit/:id',
+        templateUrl: '/partials/admin/fund/fundEditor',
+        controller: 'fundEditorCtrl', controllerAs: 'vm'
     });
 });
 

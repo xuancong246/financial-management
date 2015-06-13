@@ -2,13 +2,21 @@
     .sidebar-nav.navbar-collapse
         ul.nav.in(id="side-menu")
             li
+                a.active(ui-sref="admin.organizations")
+                    i.fa.fa-users.fa-fw
+                    | Organizations
+            li
                 a.active(ui-sref="admin.users")
-                    i.fa.fa-dashboard.fa-fw
+                    i.fa.fa-user.fa-fw
                     | Users
             li
                 a(ui-sref="admin.roles")
-                    i.fa.fa-dashboard.fa-fw
+                    i.fa.fa-ticket.fa-fw
                     | Roles
+            li
+                a(ui-sref="admin.funds")
+                    i.fa.fa-money.fa-fw
+                    | Funds
             li
                 a(href="#", id="charts", data-toggle="collapse", data-target="#chartItems")
                     i.fa.fa-bar-chart-o.fa-fw

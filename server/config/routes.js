@@ -1,5 +1,6 @@
 var users = require('./../controllers/users'),
     roles = require('./../controllers/roles'),
+    funds = require('./../controllers/funds'),
     authenticate = require('./authenticate');
 
 module.exports = function(app, config) {
@@ -12,6 +13,11 @@ module.exports = function(app, config) {
     app.get('/api/roles/:id', roles.getRoleById);
     app.post('/api/roles', roles.createRole);
     app.put('/api/roles', roles.updateRole);
+
+    app.get('/api/funds', funds.getFunds);
+    app.get('/api/funds/:id', funds.getFundById);
+    app.post('/api/funds', funds.createFund);
+    app.put('/api/funds', funds.updateFund);
 
     app.get('/partials/*', function(req, res) {
         res.render(config.partialsPath + '/' + req.params[0]);

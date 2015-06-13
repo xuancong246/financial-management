@@ -31,7 +31,6 @@ function createRole(req, res) {
 
     Role.create(roleData, function(err, role) {
         if (err) {
-            console.log('congtest:' + err.toString());
             if (err.toString().indexOf('E11000') > -1) {
                 err = new Error('Duplicated role name');
             }
