@@ -81,6 +81,24 @@ angular.module('fm').config(function($stateProvider, $urlRouterProvider) {
         url: '/funds/edit/:id',
         templateUrl: '/partials/admin/fund/fundEditor',
         controller: 'fundEditorCtrl', controllerAs: 'vm'
+    })
+    .state('admin.organizations', {
+        parent: 'admin',
+        url: '/organizations',
+        templateUrl: '/partials/admin/organization/organizationManager',
+        controller: 'organizationManagerCtrl', controllerAs: 'vm'
+    })
+    .state('admin.organizations.create', {
+        parent: 'admin',
+        url: '/organizations/create',
+        templateUrl: '/partials/admin/organization/organizationCreator',
+        controller: 'organizationCreatorCtrl', controllerAs: 'vm'
+    })
+    .state('admin.organizations.edit', {
+        parent: 'admin',
+        url: '/organizations/edit/:id',
+        templateUrl: '/partials/admin/organization/organizationEditor',
+        controller: 'organizationEditorCtrl', controllerAs: 'vm'
     });
 });
 

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 require('./../models/User');
 require('./../models/Role');
 require('./../models/Fund');
+require('./../models/Organization');
 
 module.exports = function(config) {
     mongoose.connect(config.db);

@@ -1,0 +1,28 @@
+h3.page-header Organization Management
+.panel.panel-default
+    .panel-body
+        .btn-group
+            button.btn.btn-primary(type="button") Actions
+            button.btn.btn-primary.btn-toggle(type="button", data-toggle="dropdown")
+                span.caret
+            ul.dropdown-menu(role="menu")
+                li
+                    a(ui-sref="admin.organizations.create") Create New Organization
+                li
+                    a Fund Setting
+    table.table.table-hover
+        thead
+            tr
+                th
+                    input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+                th Organization name
+                th Address
+                th Description
+        tbody
+            tr(ng-repeat="organization in vm.model.organizations")
+                td
+                    input(type="checkbox", ng-model="organization.selected")
+                td
+                    a(ui-sref="admin.organizations.edit({ id:organization._id })") {{ organization.name }}
+                td {{ organization.address }}
+                td {{ organization.description }}
