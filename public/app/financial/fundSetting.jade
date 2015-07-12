@@ -1,0 +1,23 @@
+h3.page-header Setting For Organization Fund
+div
+    ul.list-inline
+        li
+            a(ui-sref='financial.fundsetting')
+                span.glyphicon.glyphicon-plus
+        li
+            a(ui-sref='financial.fundsetting')
+                span.glyphicon.glyphicon-trash
+table.table.table-hover
+    thead
+        tr
+            th
+                input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()") 
+            th Period
+            th Detail
+    tbody
+        tr(ng-repeat="setting in vm.model.settings")
+            td
+                input(type="checkbox", ng-model="setting.selected")
+            td 
+                a(ui-sref="") {{ setting.period }}            
+            td sample-bar
