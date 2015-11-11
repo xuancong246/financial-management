@@ -8,7 +8,10 @@ exports.createUser = createUser;
 exports.updateUser = updateUser;
 
 function getUsers(req, res) {
-    User.find({}).exec(function(err, collection) {
+    User.find({}, {password: false, salt: false})
+    .populate('organization', 'name -_id')
+    .populate('roles', 'name -_id')
+    .exec(function(err, collection) {
         if (err) console.log('err: ' + err);
         res.send(collection);
     });

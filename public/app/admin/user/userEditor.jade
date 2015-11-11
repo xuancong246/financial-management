@@ -1,26 +1,54 @@
 h3.page-header User Information
 .panel.panel-default
     .panel-body
-        form.form-horizontal(name="userEditorForm")
-            .form-group
-                label.col-md-2.control-label(for="username") Email
+        form.form-horizontal(name="fm", novalidate)
+            .form-group.required(ng-class="{'has-error' : fm.username.$invalid && fm.username.$dirty}")
+                label.col-md-2.control-label(for="username") Username
                 .col-md-10
-                    input.form-control(name="username", type="email", placeholder="Email", ng-model="vm.model.user.username", required)
-            .form-group
+                    input.form-control(name="username", ng-model="vm.model.user.username", required)
+                    div(ng-messages="fm.username.$error", class="validation-error")
+                        div(ng-message="required") Please input username.
+            .form-group.required(ng-class="{'has-error' : fm.email.$invalid && fm.email.$dirty}")
+                label.col-md-2.control-label(for="email") Email
+                .col-md-10
+                    input.form-control(name="email", type="email", ng-model="vm.model.user.email", required)
+                    div(ng-messages="fm.email.$error", class="validation-error")
+                        div(ng-message="required") Please input email.
+                        div(ng-message="email") Please input a valid email.
+            .form-group.required(ng-class="{'has-error' : fm.firstName.$invalid && fm.firstName.$dirty}")
                 label.col-md-2.control-label(for="firstName") First name
                 .col-md-10
-                    input.form-control(name="firstName", type="text", placeholder="First name", ng-model="vm.model.user.firstName", required)
-            .form-group
+                    input.form-control(name="firstName", type="text", ng-model="vm.model.user.firstName", required)
+                    div(ng-messages="fm.firstName.$error", class="validation-error")
+                        div(ng-message="required") Please input first name.
+            .form-group.required(ng-class="{'has-error' : fm.lastName.$invalid && fm.lastName.$dirty}")
                 label.col-md-2.control-label(for="lastName") Last name
                 .col-md-10
-                    input.form-control(name="lastName", type="text", placeholder="Last name", ng-model="vm.model.user.lastName", required)
+                    input.form-control(name="lastName", type="text", ng-model="vm.model.user.lastName", required)
+                    div(ng-messages="fm.lastName.$error", class="validation-error")
+                        div(ng-message="required") Please input last name.
             .form-group
                 label.col-md-2.control-label(for="password") Password
                 .col-md-10
                     input.form-control(name="password", type="password", placeholder="New password", ng-model="vm.model.newPassword")
             .form-group
+                .col-md-offset-2.col-md-10
+                    .checkbox
+                        label
+                            input(type="checkbox", ng-model="vm.model.user.isActive")
+                            | Active
+            .form-group.required(ng-class="{'has-error' : fm.organization.$invalid && fm.organization.$dirty}")
+                label.col-md-2.control-label(for="organization") Organization
+                .col-md-10
+                    select.form-control(name="organization", ng-model="vm.model.user.organization",\ 
+                                        ng-options="item._id as item.name for item in vm.model.organizations", 
+                                        required)
+                        option(value="") -- Choose an organization --
+                    div(ng-messages="fm.organization.$error", class="validation-error")
+                        div(ng-message="required") Please choose organization.
+            .form-group
                 .col-md-10.col-md-offset-2
                     .pull-right
-                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="userEditorForm.$invalid") Submit
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="fm.$invalid") Submit
                         | &nbsp;
                         a.btn.btn-default(ui-sref="admin.users") Cancel

@@ -46,3 +46,12 @@
 .page-header {
   margin: 20px 0 20px;
 }
+div.required label:after {
+  color: #f00;
+  content: "*";
+  display: inline;
+  font-weight: bold;
+}
+div.validation-error {
+  color: #f00;
+}

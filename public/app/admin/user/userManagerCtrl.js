@@ -15,16 +15,11 @@
         function init() {
             userModel.query().$promise.then(function(data) {
                 addSelectedField(data);
+                buildOrganizationName(data);
                 vm.model.users = data;
             }, function(reason) {
                 console.log('Get all users, error: ' + reason);
             });
-
-            function addSelectedField(users) {
-                for (var i = 0; i < users.length; i++) {
-                    users[i].selected = false;
-                }
-            }
 
             $scope.getSelectionState = function() {
                 var selectionState = true;
@@ -40,6 +35,18 @@
                     vm.model.selectedAll = value;
                 }
             });
+
+            function addSelectedField(users) {
+                for (var i = 0; i < users.length; i++) {
+                    users[i].selected = false;
+                }
+            }
+
+            function buildOrganizationName(users) {
+                for (var j = 0; j < users.length; j++) {
+                    users[j].organizationName = users[j].organization ? users[j].organization.name : '';
+                }
+            }
         }
 
         function onSelectAll() {

@@ -13,12 +13,20 @@ h3.page-header User Management
             tr
                 th
                     input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+                th Username
                 th Email
                 th Full Name
+                th Organization
+                th Roles
+                th Active
         tbody
             tr(ng-repeat="user in vm.model.users")
                 td
                     input(type="checkbox", ng-model="user.selected")
                 td 
-                    a(ui-sref="admin.users.edit({ id:user._id })") {{ user.username }}            
+                    a(ui-sref="admin.users.edit({ id:user._id })", title="Click to edit user data") {{ user.username }}
+                td {{ user.email }}
                 td {{ user.firstName + ' ' + user.lastName }}
+                td {{ user.organizationName }}
+                td Sample data {{ user.congtest }}
+                td {{ user.isActive | checkmark }}
