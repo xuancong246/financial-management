@@ -3,7 +3,8 @@
         $stateProvider
         .state('admin', {
             url: '/admin',
-            templateUrl: '/partials/admin/admin'
+            templateUrl: '/partials/admin/admin',
+            controller: 'adminCtrl', controllerAs: 'vm'
         })
         .state('admin.users', {
             parent: 'admin',

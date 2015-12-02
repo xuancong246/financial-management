@@ -1,3 +1,5 @@
 div.col-md-12(id="admin-container")
     div.col-md-2(id="admin-category", ng-include="'/partials/admin/adminCategory'")
-    div.col-md-10(id="admin-body", ui-view="")
+    div.col-md-10(id="admin-body")
+        div.overlay(id="admin-body-overlay", ng-if="vm.sharedItem.isAdminBodyLoading")
+        div(ui-view="")

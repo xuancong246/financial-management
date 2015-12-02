@@ -1,4 +1,6 @@
-angular.module('fm', ['ngResource', 'ui.router', 'ui.bootstrap', 'ngMessages']);
+angular.module('fm', [
+    'ngResource', 'ui.router', 'ui.bootstrap', 'ngMessages', 'ui.select', 'ngSanitize'
+]);
 
 angular.module('fm').config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');

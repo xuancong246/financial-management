@@ -47,6 +47,15 @@ h3.page-header User Information
                     div(ng-messages="fm.organization.$error", class="validation-error")
                         div(ng-message="required") Please choose organization.
             .form-group
+                label.col-md-2.control-label(for="roles") Roles
+                .col-md-10
+                    ui-select(multiple, theme="bootstrap", close-on-select="false", name="roles", ng-model="vm.model.user.roles", style="width:100%")
+                        ui-select-match(placeholder="Select role")
+                            span {{$item.name}}
+                        ui-select-choices(repeat="role in vm.model.roles | filter: $select.search")
+                            div(ng-bind-html="role.name")
+                                span {{role.name}}
+            .form-group
                 .col-md-10.col-md-offset-2
                     .pull-right
                         button.btn.btn-primary(ng-click="vm.update()", ng-disabled="fm.$invalid") Submit

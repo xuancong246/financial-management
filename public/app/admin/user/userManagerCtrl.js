@@ -15,7 +15,16 @@
         function init() {
             userModel.query().$promise.then(function(data) {
                 addSelectedField(data);
-                buildOrganizationName(data);
+                data.forEach(function(user) {
+                    user.organizationName = user.organization ? user.organization.name : '';
+                    user.roleNames = '';
+                    if (user.roles) {
+                        var roles = user.roles.map(function(role) {
+                            return role.name;
+                        });
+                        user.roleNames = roles.join('; ');
+                    }
+                });
                 vm.model.users = data;
             }, function(reason) {
                 console.log('Get all users, error: ' + reason);
@@ -39,12 +48,6 @@
             function addSelectedField(users) {
                 for (var i = 0; i < users.length; i++) {
                     users[i].selected = false;
-                }
-            }
-
-            function buildOrganizationName(users) {
-                for (var j = 0; j < users.length; j++) {
-                    users[j].organizationName = users[j].organization ? users[j].organization.name : '';
                 }
             }
         }
