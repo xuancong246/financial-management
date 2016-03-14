@@ -1,0 +1,28 @@
+form(name="fm")
+    div.col-md-3
+        .form-group.required
+            label.control-label(for="period") Apply fund setting on
+            p.input-group
+                input.form-control(type="text", uib-datepicker-popup="dd/MM/yyyy", ng-model="vm.model.appliedOn", is-open="vm.status.open", close-text="Close")
+                span.input-group-btn
+                    button.btn.btn-default(type="button", ng-click="vm.open($event)")
+                        i.glyphicon.glyphicon-calendar
+    div.col-md-4
+        table.table.table-hover
+            thead
+                tr
+                    th Fund name
+                    th.col-md-4 Percentage (%)
+            tbody
+                tr(ng-repeat="setting in vm.model.fundSettingDetails")
+                    td
+                        span(title="{{setting.description}}") {{setting.name}}
+                    td
+                        input.input__percentage(type="text", ng-model="setting.percentage")
+        .form-group
+            .pull-right.btn-group
+                button.btn.btn-default(ng-click="vm.renderFundPercentagePieChart()") Preview
+                button.btn.btn-primary(ng-click="vm.save()", ng-disabled="fm.$invalid") Submit
+                a.btn.btn-default(ui-sref="financial.fundsetting") Cancel
+    div.col-md-5
+        highchart(id="chart1", config="vm.chartConfig")

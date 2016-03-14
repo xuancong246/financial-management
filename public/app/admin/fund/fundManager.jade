@@ -15,6 +15,7 @@ h3.page-header Fund Management
                     input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
                 th Fund name
                 th Description
+                th Percentage
                 th Active
         tbody
             tr(ng-repeat="fund in vm.model.funds")
@@ -23,4 +24,5 @@ h3.page-header Fund Management
                 td
                     a(ui-sref="admin.funds.edit({ id:fund._id })") {{ fund.name }}
                 td {{ fund.description }}
+                td {{ fund.percentage }}%
                 td {{ fund.isActive | checkmark }}

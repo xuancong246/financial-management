@@ -1,5 +1,6 @@
 angular.module('fm', [
-    'ngResource', 'ui.router', 'ui.bootstrap', 'ngMessages', 'ui.select', 'ngSanitize'
+    'ngResource', 'ui.router', 'ui.bootstrap', 'ngMessages', 'ui.select', 'ngSanitize',
+    'highcharts-ng'
 ]);
 
 angular.module('fm').config(function($stateProvider, $urlRouterProvider) {

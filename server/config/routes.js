@@ -1,6 +1,7 @@
 var users = require('./../controllers/users'),
     roles = require('./../controllers/roles'),
     funds = require('./../controllers/funds'),
+    fundSettings = require('./../controllers/fundSettings'),
     organizations = require('./../controllers/organizations'),
     authenticate = require('./authenticate');
 
@@ -19,6 +20,9 @@ module.exports = function(app, config) {
     app.get('/api/funds/:id', funds.getFundById);
     app.post('/api/funds', funds.createFund);
     app.put('/api/funds', funds.updateFund);
+
+    app.get('/api/fundSettings', fundSettings.getFundSettings);
+    app.post('/api/fundSettings', fundSettings.createFundSetting);
 
     app.get('/api/organizations', organizations.getOrganizations);
     app.get('/api/organizations/:id', organizations.getOrganizationById);
