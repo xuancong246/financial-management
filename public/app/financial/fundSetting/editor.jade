@@ -22,7 +22,7 @@ form(name="fm")
         .form-group
             .pull-right.btn-group
                 button.btn.btn-default(ng-click="vm.renderFundPercentagePieChart()") Preview
-                button.btn.btn-primary(ng-click="vm.save()", ng-disabled="fm.$invalid") Submit
                 a.btn.btn-default(ui-sref="financial.fundsetting") Cancel
+                button.btn.btn-primary(ng-click="vm.save()", ng-disabled="fm.$invalid") Submit
     div.col-md-5
         highchart(id="chart1", config="vm.chartConfig")

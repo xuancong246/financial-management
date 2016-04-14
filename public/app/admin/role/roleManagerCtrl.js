@@ -1,6 +1,7 @@
 (function() {
     angular.module('fm').controller('roleManagerCtrl', RoleManagerCtrl);
     RoleManagerCtrl.$inject = ['roleModel', '$scope'];
+
     function RoleManagerCtrl(roleModel, $scope) {
         var vm = this;
         vm.model = {

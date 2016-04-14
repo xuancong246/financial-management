@@ -16,6 +16,12 @@
             url: '/editor',
             templateUrl: '/partials/financial/fundSetting/editor',
             controller: 'fnFundSettingEditorCtrl', controllerAs: 'vm'
+        })
+        .state('financial.inputcash', {
+            parent: 'financial',
+            url: '/inputcash',
+            templateUrl: '/partials/financial/inputCash/manager',
+            controller: 'fnInputCashManagerCtrl', controllerAs: 'vm'
         });
     });
 })();

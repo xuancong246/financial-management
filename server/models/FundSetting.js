@@ -1,5 +1,4 @@
-var mongoose = require('mongoose'),
-    encryption = require('./../utilities/encryption');
+var mongoose = require('mongoose');
 
 var fundSettingSchema = mongoose.Schema({
     appliedOn: {type: 'Date'},

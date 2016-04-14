@@ -3,6 +3,7 @@ require('./../models/User');
 require('./../models/Role');
 require('./../models/Fund');
 require('./../models/FundSetting');
+require('./../models/InputCash');
 require('./../models/Organization');
 
 module.exports = function(config) {
