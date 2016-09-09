@@ -1,7 +1,7 @@
 (function() {
-  angular.module('app').value('toastr', toastr);
+  angular.module('fm').value('toastr', toastr);
 
-  angular.module('app').factory('notifierSvc', NotifierSvc);
+  angular.module('fm').factory('notifierSvc', NotifierSvc);
 
   function NotifierSvc(toastr) {
     var factory = {

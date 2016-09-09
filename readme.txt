@@ -2,3 +2,5 @@ To run this application, start your mongo server & do the following from the com
 bower install
 npm install
 nodemon server.js
+====
+Account: admin/123456

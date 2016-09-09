@@ -1,0 +1,41 @@
+div
+    ul.list-inline
+        li
+            a(ui-sref='financial.fundsetting.editor')
+                span.glyphicon.glyphicon-plus(title="Add fund setting")
+                span Add
+div.row
+    .col-md-4.form-group.required
+        label.control-label(for="period") Inputted date
+        p.input-group
+            input.form-control(type="text", uib-datepicker-popup="dd/MM/yyyy", ng-model="vm.model.inputDate", is-open="vm.status.open", close-text="Close", datepicker-mode="'month'", min-mode="'month'")
+            span.input-group-btn
+                button.btn.btn-default(type="button", ng-click="vm.open($event)")
+                    i.glyphicon.glyphicon-calendar
+        label.control-label(for="cash") Cash
+        input.form-control(type="text", name="cash")
+    .col-md-4.form-group
+        label.control-label(for="source") Source
+        input.form-control(type="text", name="source", ng-model="vm.model.source")
+    .col-md-4.form-group
+        label.control-label(for="member") From member
+        select.form-control(name="member")
+            option(value="test", text="test")
+div
+    .form-group
+        .pull-right.btn-group
+            button.btn.btn-default(type="button") Cancel
+            button.btn.btn-primary(type="button", ng-click="vm.add();") Add
+table.table.table-hover
+    thead
+        tr
+            th Month
+            th Total of Cash
+            th Lock
+    tbody
+        tr(ng-repeat="inputCash in vm.model.inputCash")
+            td
+                a Sample
+            td {{inputCash.source}}
+            td
+                Sample

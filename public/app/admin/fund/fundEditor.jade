@@ -1,0 +1,34 @@
+h3.page-header Fund Information
+.panel.panel-default
+    .panel-body
+        form.form-horizontal(name="fm")
+            .form-group.required
+                label.col-md-2.control-label(for="name") Name
+                .col-md-10
+                    input.form-control(name="name", type="type", ng-model="vm.model.fund.name", required)
+                    div(ng-messages="fm.name.$error", class="validation-error")
+                        div(ng-message="required") Please input name
+            .form-group
+                label.col-md-2.control-label(for="description") Description
+                .col-md-10
+                    input.form-control(name="description", type="text", ng-model="vm.model.fund.description")
+            .form-group.required
+                label.col-md-2.control-label(for="percentage") Percentage
+                .col-md-10
+                    input.form-control(name="percentage", type="number", min="1", max="100" ng-model="vm.model.fund.percentage", required)
+                    div(ng-messages="fm.percentage.$error", class="validation-error")
+                        div(ng-message="required") Please input percentage
+                        div(ng-message="min") Please input in range 1 - 100
+                        div(ng-message="max") Please input in range 1 - 100
+            .form-group
+                .col-md-offset-2.col-md-10
+                    .checkbox
+                        label
+                            input(name="isActive", type="checkbox", ng-model="vm.model.fund.isActive")
+                            | Active
+            .form-group
+                .col-md-10.col-md-offset-2
+                    .pull-right
+                        button.btn.btn-primary(ng-click="vm.update()", ng-disabled="fm.$invalid") Submit
+                        | &nbsp;
+                        a.btn.btn-default(ui-sref="admin.funds") Cancel

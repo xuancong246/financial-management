@@ -1,25 +1,18 @@
 extends ../includes/layout
 
 block main-content
-  div(id="wrapper")
-    .navbar.navbar-default.navbar-static-top
-      .container
-        .navbar-header
-          a.navbar-brand(href="/") Financial Management
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav
-            li
-              a(role="presentation", href="/") Home
-            li
-              a(role="presentation", href="/") Test
-            li
-              a(role="presentation", href="/signin") Sign In
-            li
-              a(role="presentation", href="/admin") Admin
-          div(ng-include="'/partials/navigation/userNavigation'")
-                    
-    section.content
-      div(ng-view)
-        
-    footer.container.text-center
-      p &copy; 2015 Financial Mamagement
+    div(id="wrapper")
+        nav.navbar.navbar-default.navbar-static-top(id="top-main-navbar", role="navigation")
+                .navbar-header
+                    a.navbar-brand(ui-sref="home") Financial Management
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav(id="module-menu-items", ng-controller="moduleMenuCtrl as vm")
+                        li(role="presentation", ng-class="{'active': vm.currentMenu === vm.menus.financial}")
+                            a(ui-sref="financial") Financial
+                        li(role="presentation", ng-class="{'active': vm.currentMenu === vm.menus.admin}")
+                            a(ui-sref="admin") Admin
+                    ng-include(src="'/partials/navigation/userNavigation'")
+        section.content
+            div(ui-view)
+        footer.container.text-center
+            p &copy; 2015 Financial Management

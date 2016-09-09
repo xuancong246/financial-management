@@ -1,0 +1,32 @@
+h3.page-header User Management
+.panel.panel-default
+    .panel-body
+        .btn-group
+            button.btn.btn-primary(type="button") Actions
+            button.btn.btn-primary.btn-toggle(type="button", data-toggle="dropdown")
+                span.caret
+            ul.dropdown-menu(role="menu")
+                li
+                    a(ui-sref="admin.users.create") Create New User
+    table.table.table-hover
+        thead
+            tr
+                th
+                    input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+                th Username
+                th Email
+                th Full Name
+                th Organization
+                th Roles
+                th Active
+        tbody
+            tr(ng-repeat="user in vm.model.users")
+                td
+                    input(type="checkbox", ng-model="user.selected")
+                td 
+                    a(ui-sref="admin.users.edit({ id:user._id })", title="Click to edit user data") {{ user.username }}
+                td {{ user.email }}
+                td {{ user.firstName + ' ' + user.lastName }}
+                td {{ user.organizationName }}
+                td {{ user.roleNames }}
+                td {{ user.isActive | checkmark }}

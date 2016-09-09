@@ -1,0 +1,31 @@
+div
+    ul.list-inline
+        li
+            a(ui-sref='financial.fundsetting.editor')
+                span.glyphicon.glyphicon-plus(title="Add fund setting")
+                span Add
+        li
+            a(ui-sref='financial.fundsetting')
+                span.glyphicon.glyphicon-trash(title="Delete fund settings")
+                span Delete
+table.table.table-hover
+    thead
+        tr
+            th
+                input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+            th Period
+            th Detail
+    tbody
+        tr(ng-repeat="setting in vm.model.settings")
+            td
+                input(type="checkbox", ng-model="setting.selected")
+            td
+                a {{ setting.appliedOn | standardDate }}
+            td
+                div.progress
+                    div.progress-bar(ng-repeat="detailSetting in setting.settings", role="progressbar", \
+                        ng-style="{width: detailSetting.percentage + '%', 'background-image': 'none', 'background-color': detailSetting.color}") {{detailSetting.percentage}}%
+div
+    div(ng-style="{display: 'inline'}", ng-repeat="fund in vm.model.funds")
+        div.color-indicator(ng-style="{'background-color': fund.color}")
+        span {{fund.name}}

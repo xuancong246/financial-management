@@ -1,0 +1,28 @@
+h3.page-header Fund Management
+.panel.panel-default
+    .panel-body
+        .btn-group
+            button.btn.btn-primary(type="button") Actions
+            button.btn.btn-primary.btn-toggle(type="button", data-toggle="dropdown")
+                span.caret
+            ul.dropdown-menu(role="menu")
+                li
+                    a(ui-sref="admin.funds.create") Create New Fund
+    table.table.table-hover
+        thead
+            tr
+                th
+                    input(type="checkbox", ng-model="vm.model.selectedAll", ng-click="vm.onSelectAll()")
+                th Fund name
+                th Description
+                th Percentage
+                th Active
+        tbody
+            tr(ng-repeat="fund in vm.model.funds")
+                td
+                    input(type="checkbox", ng-model="fund.selected")
+                td
+                    a(ui-sref="admin.funds.edit({ id:fund._id })") {{ fund.name }}
+                td {{ fund.description }}
+                td {{ fund.percentage }}%
+                td {{ fund.isActive | checkmark }}

@@ -1,5 +1,5 @@
 (function() {
-    angular.module('app').factory('userModel', UserModel);
+    angular.module('fm').factory('userModel', UserModel);
     UserModel.$inject = ['$resource'];
 
     function UserModel($resource) {
