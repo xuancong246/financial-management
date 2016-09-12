@@ -43,7 +43,6 @@ function createFund(req, res) {
 
 function updateFund(req, res) {
     var updatedFund = req.body;
-    console.log('congtest:' + JSON.stringify(updatedFund));
     Fund.findOne({_id: updatedFund._id}).exec(function(err, fund) {
         if (err) {
             res.status(400);

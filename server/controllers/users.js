@@ -1,8 +1,11 @@
 var encryption = require('./../utilities/encryption'),
     User = require('mongoose').model('User'),
-    extend = require('util')._extend;
+    extend = require('util')._extend,
+    mongoose = require('mongoose'),
+    ObjectId = mongoose.Types.ObjectId;
 
 exports.getUsers = getUsers;
+exports.getUsersByOrganizationId = getUsersByOrganizationId;
 exports.getUserById = getUserById;
 exports.createUser = createUser;
 exports.updateUser = updateUser;
@@ -13,6 +16,18 @@ function getUsers(req, res) {
     .populate('roles', 'name -_id')
     .exec(function(err, collection) {
         if (err) console.log('err: ' + err);
+        res.send(collection);
+    });
+}
+
+function getUsersByOrganizationId(req, res) {
+    if (req.params.organizationId === undefined) {
+        console.log('Undefined organization id');
+        res.end();
+    }
+    User.find({organization: ObjectId(req.params.organizationId)}, {password: false, salt: false})
+    .exec(function(err, collection) {
+        if (err) console.log('Get users by organization error: ' + err);
         res.send(collection);
     });
 }

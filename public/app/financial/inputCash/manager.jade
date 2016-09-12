@@ -20,7 +20,7 @@ div.row
     .col-md-4.form-group
         label.control-label(for="member") From member
         select.form-control(name="member")
-            option(value="test", text="test")
+            option(ng-repeat="user in vm.users", value="user._id") {{user.firstName}} {{user.lastName}}
 div
     .form-group
         .pull-right.btn-group

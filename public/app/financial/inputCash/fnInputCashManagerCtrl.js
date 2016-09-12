@@ -1,8 +1,10 @@
 (function() {
     angular.module('fm').controller('fnInputCashManagerCtrl', FnInputCashManagerCtrl);
-    FnInputCashManagerCtrl.$inject = ['fnInputCashDataSvc', 'notifierSvc', 'inputCashModel'];
+    FnInputCashManagerCtrl.$inject = [
+        'fnInputCashDataSvc', 'notifierSvc', 'inputCashModel', 'financialDataSvc'];
 
-    function FnInputCashManagerCtrl(fnInputCashDataSvc, notifierSvc, inputCashModel) {
+    function FnInputCashManagerCtrl(
+        fnInputCashDataSvc, notifierSvc, inputCashModel, financialDataSvc) {
         var vm = this;
         vm.model = {
             inputDate: new Date(),
@@ -13,6 +15,7 @@
         vm.open = function(event) {
             vm.status.open = true;
         };
+        vm.users = financialDataSvc.users;
 
         vm.init = init;
         vm.add = add;

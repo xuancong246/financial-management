@@ -1,3 +1,4 @@
 div.overlay(id="financial-body-overlay", ng-if="vm.sharedItem.isFinancialBodyLoading")
+div.col-md-12 Organization: {{vm.organization.name}}
 div.col-md-12(id="financial-menu", ng-include="'/partials/financial/financialMenu'")
-div.col-md-12(id="financial-content", ui-view="")
+div.col-md-12(id="financial-content", ui-view="", ng-if="!vm.sharedItem.isFinancialBodyLoading")

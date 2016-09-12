@@ -1,11 +1,12 @@
 (function() {
     angular.module('fm').factory('userDataSvc', UserDataSvc);
-    UserDataSvc.$inject = ['$q', '$http', 'userModel', 'identitySvc'];
+    UserDataSvc.$inject = ['$q', '$http', 'userModel', 'userOrganizationModel', 'identitySvc'];
 
-    function UserDataSvc($q, $http, userModel, identitySvc) {
+    function UserDataSvc($q, $http, userModel, userOrganizationModel, identitySvc) {
         var service = {
             create: create,
             update: update,
+            getUsersByOrganizationId: getUsersByOrganizationId,
             getById: getById
         };
         return service;
@@ -30,6 +31,16 @@
                 defer.resolve();
             }, function(reason) {
                 defer.reject(reason);
+            });
+            return defer.promise;
+        }
+
+        function getUsersByOrganizationId(id) {
+            var defer = $q.defer();
+            userOrganizationModel.get({organizationId: id}).$promise.then(function(data) {
+                defer.resolve(data);
+            }, function() {
+                defer.reject();
             });
             return defer.promise;
         }
