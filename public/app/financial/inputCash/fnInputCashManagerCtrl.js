@@ -1,10 +1,12 @@
 (function() {
     angular.module('fm').controller('fnInputCashManagerCtrl', FnInputCashManagerCtrl);
     FnInputCashManagerCtrl.$inject = [
-        'fnInputCashDataSvc', 'notifierSvc', 'inputCashModel', 'financialDataSvc'];
+        'fnInputCashDataSvc', 'notifierSvc', 'inputCashModel', 'financialDataSvc',
+        'fnInputCashManagerSvc'];
 
     function FnInputCashManagerCtrl(
-        fnInputCashDataSvc, notifierSvc, inputCashModel, financialDataSvc) {
+        fnInputCashDataSvc, notifierSvc, inputCashModel, financialDataSvc,
+        fnInputCashManagerSvc) {
         var vm = this;
         vm.model = {
             inputDate: new Date(),
@@ -25,6 +27,7 @@
         function init() {
             inputCashModel.query().$promise.then(function(data) {
                 vm.model.inputCash = data;
+                vm.model.cashByMonth = fnInputCashManagerSvc.buildInputCashByMonth(vm.model.inputCash);
             }, function(error) {
                 console.log(error);
             });

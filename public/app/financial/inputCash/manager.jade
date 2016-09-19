@@ -31,11 +31,14 @@ table.table.table-hover
         tr
             th Month
             th Total of Cash
+            th Source
             th Lock
     tbody
-        tr(ng-repeat="inputCash in vm.model.inputCash")
+        tr(ng-repeat="monthYear in vm.model.cashByMonth.months")
             td
-                a Sample
-            td {{inputCash.source}}
-            td
-                Sample
+                a {{monthYear}}
+            td {{vm.model.cashByMonth.detail[monthYear].totalCash}}
+            td Sample
+            td Sample
+ng-repeat(ng-repeat="monthYear in vm.model.cashByMonth.months")
+    fn-input-cash-by-month(cash-by-month="vm.model.cashByMonth.detail[monthYear]")
