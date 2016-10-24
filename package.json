@@ -1,7 +1,7 @@
 {
-  "name": "FinancialManagement",
+  "name": "cpsolutions",
   "version": "1.0.0",
-  "description": "Financial management",
+  "description": "Cong Pham Solutions",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.11.0",
@@ -9,11 +9,11 @@
     "express": "^4.11.2",
     "express-session": "^1.10.2",
     "jade": "^1.9.2",
-    "mongoose": "^3.8.23",
+    "mongoose": "^4.6.4",
     "morgan": "^1.5.1",
-    "passport": "^0.2.1",
+    "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "stylus": "^0.50.0"
+    "stylus": "^0.54.5"
   },
   "devDependencies": {},
   "scripts": {
