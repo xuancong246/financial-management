@@ -12,6 +12,8 @@ module.exports = function(app, config) {
     app.post('/api/users', users.createUser);
     app.put('/api/users', users.updateUser);
 
+    app.get('/api/users-organization/:organizationId', users.getUsersByOrganizationId);
+
     app.get('/api/roles', roles.getRoles);
     app.get('/api/roles/:id', roles.getRoleById);
     app.post('/api/roles', roles.createRole);

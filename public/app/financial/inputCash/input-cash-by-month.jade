@@ -1,0 +1,15 @@
+.row
+    div.col-md-3
+        span {{inputCashByMonth.displayMonth}}
+    div.col-md-3
+        span {{inputCashByMonth.totalCash}}
+    div.col-md-3
+        span {{inputCashByMonth.temp}}
+    div.col-md-3
+        span {{inputCashByMonth.temp}}
+ng-repeat(ng-repeat="item in inputCashByMonth.items")
+    .row
+        .col-md-3 {{item.inputDate}}
+        .col-md-3 {{item.cash}}
+        .col-md-3 {{item.source}}
+        .col-md-3 {{item.temp}}
