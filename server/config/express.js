@@ -5,6 +5,7 @@ var logger = require('morgan'),
     session = require('express-session'),
     passport = require('passport'),
     stylus = require('stylus');
+	var cors = require('cors');
 
 module.exports = function(app, config) {
     function compile(str, path) {
@@ -19,6 +20,7 @@ module.exports = function(app, config) {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
+	app.use(cors());
     app.use(session({secret: 'financial unicorns'}));
     app.use(passport.initialize());
     app.use(passport.session());
